@@ -1,5 +1,7 @@
 # League of Legends MMORPG styled game
 
+## My game is called League of Legends, each champion will battle beasts of diffierent difficulty and get exp and gold based on the beasts. With the exp and gold, the champion can buy weapons and armor to battle stronger beasts. The main goal is which champion can kill the elder dragon first.
+
 # Creating Champion
 
 ## POST /champions
@@ -57,7 +59,7 @@ o If the request body is missing name, return 400 Bad Request.
 "gold_drop": 16
 }
 
-# Creating Battlefield
+# Creating Battlefield (Highlighted Feature)
 
 ## POST /battlefields/:champion_id/:beast_id
 
@@ -75,7 +77,7 @@ o If the request body is missing name, return 400 Bad Request.
 o If the beast has already been defeated, returns 400 Bad Request and "message": "The beast is already defeated."
 o If the params id cannot be found, returns 404 Not Found and "message": "Champion or beast not found"
 
-# Champion fighting beast
+# Champion fighting beast (Highlighted Feature)
 
 ## PUT /:battle_id
 
@@ -126,7 +128,7 @@ o if battle_id is not legit returns 404 Not Found and "message": "Battlefield no
 "item_protection": 50
 }
 
-# Purchasing items from shop
+# Purchasing items from shop (Highlighted Feature)
 
 ## POST /buy/:champion_id/:item_id
 
@@ -145,7 +147,7 @@ o if item_id is is in-valid returns, 404 Not Found and "message": "Item not foun
 o if champion is not at required level for item returns, 400 Bad Request and "message": "Level requirement not met to purchase the item"
 o if champion dooes not have enough gold for item returns, 400 Bad Request and "message": "Not enough gold to purchase the item"
 
-# Chacking inventory
+# Checking inventory
 
 ## GET /buy/:champion_id
 
@@ -169,7 +171,7 @@ o if champion dooes not have enough gold for item returns, 400 Bad Request and "
 
 o if champion_id is in-valid returns, 404 Not Found and "message": "Champion not found"
 
-# Equipping items
+# Equipping items (Highlighted Feature)
 
 ## PUT /champions/:champion_id/:item_id
 
@@ -187,7 +189,7 @@ o if champion_id is in-valid returns, 404 Not Found and "message": "Champion not
 o if no such item_id in inventory returns, 404 Not Found and "message": "Item not found in inventory"
 o if item type is not weapon or armor (unlikely to happen cuz i made everything in shop but just a precausionary measure) returns, 400 Bad Request and message: "Invalid item type"
 
-# Unequipping items
+# Unequipping items (Highlighted Feature)
 
 ## PUT /champions/unequip/:champion_id/:choice (where choice is an option where 1 is to unequip armor and 2 is to unequip weapon)
 
